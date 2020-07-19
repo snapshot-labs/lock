@@ -1,6 +1,6 @@
 // @ts-ignore
 import Portis from '@portis/web3';
-import LockConnector from '../connector';
+import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
   async connect() {

@@ -5,11 +5,11 @@ export default class Connector {
     this.options = options;
   }
 
-  connect() {
+  connect(): any {
     return;
   }
 
-  logout() {
+  logout(): any {
     return true;
   }
 

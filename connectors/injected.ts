@@ -1,4 +1,4 @@
-import LockConnector from '../connector';
+import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
   async connect() {

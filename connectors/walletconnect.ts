@@ -1,6 +1,6 @@
 // @ts-ignore
 import WalletConnectProvider from '@walletconnect/web3-provider';
-import LockConnector from '../connector';
+import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
   async connect() {
