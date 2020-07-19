@@ -1,0 +1,31 @@
+{
+  "name": "@bonustrack/lock",
+  "version": "0.1.0",
+  "repository": "bonustrack/lock",
+  "license": "MIT",
+  "main": "dist/lock.cjs.js",
+  "module": "dist/lock.esm.js",
+  "browser": "dist/lock.min.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^13.9.5",
+    "bluebird": "^3.7.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "rollup": "^2.3.0",
+    "rollup-plugin-filesize": "^6.2.1",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-typescript2": "^0.27.0",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "pretest": "npm run build"
+  },
+  "files": [
+    "dist",
+    "src"
+  ]
+}
