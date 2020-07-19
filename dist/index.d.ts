@@ -1,3 +1,2 @@
 import Lock from './lock';
-
-export default { Lock };
+export { Lock };

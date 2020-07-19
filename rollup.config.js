@@ -4,11 +4,12 @@ import filesize from 'rollup-plugin-filesize';
 import pkg from './package.json';
 
 const name = 'lock';
+const input = 'src/index.ts';
 const external = [...Object.keys(pkg.dependencies || {})];
 
 export default [
   {
-    input: 'src/main.ts',
+    input,
     external,
     output: {
       name,
@@ -22,7 +23,7 @@ export default [
     ]
   },
   {
-    input: 'src/main.ts',
+    input,
     external,
     output: [
       { file: pkg.main, format: 'cjs' },

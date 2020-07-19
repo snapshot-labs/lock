@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 var Lock = /** @class */ (function () {
     function Lock() {
         this.connectors = {};
@@ -16,6 +18,4 @@ var Lock = /** @class */ (function () {
     return Lock;
 }());
 
-var main = { Lock: Lock };
-
-module.exports = main;
+exports.Lock = Lock;

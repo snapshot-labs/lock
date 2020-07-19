@@ -14,6 +14,4 @@ var Lock = /** @class */ (function () {
     return Lock;
 }());
 
-var main = { Lock: Lock };
-
-export default main;
+export { Lock };
