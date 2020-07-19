@@ -4,9 +4,9 @@ export default class Lock {
   public connectors = {};
   public options = {};
 
-  addConnector(key: string, connector: Connector, options = {}) {
-    this.connectors[key] = connector;
-    this.options[key] = options;
+  addConnector(connector: any) {
+    this.connectors[connector.key] = connector.connector;
+    this.options[connector.key] = connector.options;
   }
 
   getConnector(key: string): Connector {
