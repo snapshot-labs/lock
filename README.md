@@ -39,24 +39,15 @@ lock.addConnector({
 });
 
 // Log in with injected web3
-let connector = lock.getConnector('injected');
-connector.connect('injected').then(provider => {
-  console.log('Log in successful');
-  provider.getBlockNumber().then(blockNumber => {
-    console.log('Block number', blockNumber);
-  });
-});
+const connector = lock.getConnector('injected');
+const provider = await connector.connect('injected');
 
 // Log out from WalletConnect
-connector = lock.getConnector('walletconnect');
-connector.logout().then(() => {
-  console.log('Log out successful');
-});
+const connector = lock.getConnector('walletconnect');
+await connector.logout();
 
 // Is logged in?
-connector.isLoggedIn().then(isLoggedIn => {
-  console.log('Is logged in?', isLoggedIn);
-});
+const isLoggedIn = await connector.isLoggedIn();
 ```
 
 ## License
