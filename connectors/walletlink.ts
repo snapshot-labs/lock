@@ -1,11 +1,12 @@
 // @ts-ignore
-import WalletLink from 'walletlink';
+const get = () => import(/* webpackChunkName: "walletlink" */ 'walletlink');
 import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
   async connect() {
     let provider;
     try {
+      const WalletLink = (await get()).default;
       const walletLink = new WalletLink(this.options);
       // @ts-ignore
       provider = walletLink.makeWeb3Provider(

@@ -1,11 +1,12 @@
 // @ts-ignore
-import Fortmatic from 'fortmatic';
+const get = () => import(/* webpackChunkName: "fortmatic" */ 'fortmatic');
 import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
   async connect() {
     let provider;
     try {
+      const Fortmatic = (await get()).default;
       const fm: any = new Fortmatic(this.options.apiKey);
       provider = await fm.getProvider();
       await fm.user.login();

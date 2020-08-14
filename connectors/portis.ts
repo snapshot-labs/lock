@@ -1,11 +1,12 @@
 // @ts-ignore
-import Portis from '@portis/web3';
+const get = () => import(/* webpackChunkName: "portis" */ '@portis/web3');
 import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
   async connect() {
     let provider;
     try {
+      const Portis = (await get()).default;
       const portis = new Portis(this.options.dappId, this.options.network);
       await portis.provider.enable();
       portis.provider._portis = portis;
