@@ -17,6 +17,6 @@ export default class Connector extends LockConnector {
   }
 
   isLoggedIn(): boolean {
-    return !!window['ethereum'] && !!window['ethereum'].selectedAddress;
+    return !!window['ethereum'];
   }
 }
