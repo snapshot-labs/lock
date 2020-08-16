@@ -1,5 +1,5 @@
 // @ts-ignore
-const get = () => import(/* webpackChunkName: "walletconnect" */ '@walletconnect/web3-provider');
+const get = () => import(/* webpackChunkName: "walletconnect" */ '@walletconnect/web3-provider'); // v^1.0.13
 import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
