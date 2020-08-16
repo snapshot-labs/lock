@@ -53,6 +53,7 @@ export const useLock = ({ ...options }) => {
       options.connectors.forEach(connector => {
         lock.addConnector(connector);
       });
+      // @ts-ignore
       this.lockClient = lock;
     }
   });
