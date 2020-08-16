@@ -27,7 +27,8 @@
   "files": [
     "dist",
     "src",
-    "connectors"
+    "connectors",
+    "plugins"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
