@@ -6,6 +6,8 @@ const name = 'lock';
 
 let instance;
 
+export const getInstance = () => instance;
+
 export const useLock = ({ ...options }) => {
   if (instance) return instance;
 
@@ -13,7 +15,9 @@ export const useLock = ({ ...options }) => {
     data() {
       return {
         isAuthenticated: false,
-        lockClient: null
+        lockClient: null,
+        provider: null,
+        web3: null
       };
     },
     methods: {
@@ -24,6 +28,7 @@ export const useLock = ({ ...options }) => {
         if (provider) {
           localStorage.setItem(`_${name}.connector`, connector);
           this.isAuthenticated = true;
+          this.provider = provider;
         }
         return provider;
       },
@@ -35,6 +40,7 @@ export const useLock = ({ ...options }) => {
           await lockConnector.logout();
           localStorage.removeItem(`_${name}.connector`);
           this.isAuthenticated = false;
+          this.provider = null;
         }
       },
       async getConnector() {
