@@ -1,37 +1,18 @@
-name: Publish to NPMJS and GPR
-
+name: Node.js Package
 on:
-  push:
-    branches:
-      - master
-
+  release:
+    types: [created]
 jobs:
-  publish-to-npm-and-gpr:
+  build:
     runs-on: ubuntu-latest
     steps:
-
-      # Checkout the repo
-      - uses: actions/checkout@master
-
-      # Update package version and set up git
-      - uses: actions/setup-node@master
-      - name: Update package version and setup git
-        run: |
-          git config user.name "Actions User"
-          git config user.email noreply@github.com
-          npm version 1.0.$(date +%s)
-
-      # Publish to NPMJS
-      - uses: actions/setup-node@master
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v1
         with:
-          node-version: 12
-          registry-url: 'https://registry.npmjs.org/'
-      - name: Publish to NPMJS
-        run: |
-          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-          npm config set scope "<@bonustrack>"
-          npm config list
-          npm publish --access public
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install
+      - run: npm publish
         env:
-          CI: true
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
