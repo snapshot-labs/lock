@@ -34,7 +34,7 @@ jobs:
           npm publish --access public
         env:
           CI: true
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       # Publish to GitHub Package Registry
       - uses: actions/setup-node@master
@@ -45,4 +45,4 @@ jobs:
       - name: Publish to GitHub Package Registry
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{github.token}}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
