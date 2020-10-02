@@ -1,5 +1,5 @@
 // @ts-ignore
-const get = () => import(/* webpackChunkName: "torus" */ 'torus'); // v^2.0.6
+const get = () => import(/* webpackChunkName: "torus" */ '@toruslabs/torus-embed'); // v^1.8.5
 import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
