@@ -7,11 +7,24 @@ export default class Connector extends LockConnector {
     let provider;
     try {
       const Torus = (await get()).default;
-      const torus: any = new Torus();
+      // @ts-ignore
+      const torus = new Torus();
       await torus.init({ showTorusButton: false });
+      debugger
+      // @ts-ignore
       await torus.login(); 
-      provider = torus.provider;
-      return;
+      debugger
+      const handler = {
+        get: function(target, prop, receiver) {
+          if (prop === 'mux') {
+            return undefined
+          } else {
+            return target[prop]
+          }
+        }
+      };
+      Object.defineProperty(torus.provider, 'mux', { value: torus.provider.mux, enumerable: false })
+      provider = torus.provider
     } catch (e) {
       console.error(e);
     }
