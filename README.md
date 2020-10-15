@@ -5,20 +5,20 @@ A lightweight JavaScript library for log in to Ethereum.
 ### Install
 To install Lock.js, open your terminal and run:
 ```
-npm install @bonustrack/lock
+npm install github:snapshot-labs/lock
 ```
 
 #### Browser
 You can create an index.html file and include Lock.js with:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@bonustrack/lock"></script>
+<script src="https://cdn.jsdelivr.net/npm/@snapshot-labs/lock"></script>
 ```
 
 ### Usage
 ```js
-import { Lock } from '@bonustrack/lock';
-import injected from '@bonustrack/lock/connectors/injected';
-import walletconnect from '@bonustrack/lock/connectors/walletconnect';
+import { Lock } from '@snapshot-labs/lock';
+import injected from '@snapshot-labs/lock/connectors/injected';
+import walletconnect from '@snapshot-labs/lock/connectors/walletconnect';
 
 // Init Lock
 const lock = new Lock();
