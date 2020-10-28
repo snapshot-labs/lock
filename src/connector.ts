@@ -5,7 +5,7 @@ export default class Connector {
     this.options = options;
   }
 
-  connect(): any {
+  async connect() {
     return;
   }
 
@@ -13,7 +13,7 @@ export default class Connector {
     return true;
   }
 
-  isLoggedIn(): boolean {
+  async isLoggedIn(): Promise<boolean> {
     return true;
   }
 }

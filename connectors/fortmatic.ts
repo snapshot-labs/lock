@@ -17,4 +17,8 @@ export default class Connector extends LockConnector {
     }
     return provider;
   }
+
+  async isLoggedIn() {
+    return false;
+  }
 }
