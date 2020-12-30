@@ -9,6 +9,7 @@ export default class Connector extends LockConnector {
         await window['ethereum'].enable();
       } catch (e) {
         console.error(e);
+        if (e.code === 4001) return;
       }
     } else if (window['web3']) {
       provider = window['web3'].currentProvider;
@@ -20,6 +21,6 @@ export default class Connector extends LockConnector {
     if (!window['ethereum']) return false;
     if (window['ethereum'].selectedAddress) return true;
     await new Promise(r => setTimeout(r, 400));
-    return !!window['ethereum'].selectedAddress
+    return !!window['ethereum'].selectedAddress;
   }
 }
