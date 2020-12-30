@@ -9,6 +9,7 @@ export default class Connector extends LockConnector {
         await window['ethereum'].enable();
       } catch (e) {
         console.error(e);
+        if (e.code === '4001') return
       }
     } else if (window['web3']) {
       provider = window['web3'].currentProvider;
