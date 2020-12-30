@@ -14,6 +14,7 @@ export default class Connector extends LockConnector {
       if (!isLoggedIn) return;
     } catch (e) {
       console.error(e);
+      return;
     }
     return provider;
   }
