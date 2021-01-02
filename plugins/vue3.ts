@@ -11,8 +11,8 @@ export const getInstance = () => instance;
 export const useLock = ({ ...options }) => {
   if (instance) return instance;
 
-  const isAuthenticated = ref(false);
-  const provider = ref(null);
+  const isAuthenticated = ref<Boolean>(false);
+  const provider = ref<null | {}>(null);
 
   const lockClient = new Lock();
   options.connectors.forEach((connector) => {

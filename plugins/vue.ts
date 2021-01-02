@@ -11,6 +11,7 @@ export const getInstance = () => instance;
 export const useLock = ({ ...options }) => {
   if (instance) return instance;
 
+  // @ts-ignore
   instance = new Vue({
     data() {
       return {
