@@ -1,4 +1,5 @@
-import { markRaw, ref } from "vue";
+// @ts-ignore
+import Vue from "vue"; // v^2.6.11
 import Lock from "../src/lock";
 
 const name = "lock";
@@ -10,61 +11,64 @@ export const getInstance = () => instance;
 export const useLock = ({ ...options }) => {
   if (instance) return instance;
 
-  const isAuthenticated = ref(false);
-  const provider = ref(null);
-
-  const lockClient = new Lock();
-  options.connectors.forEach((connector) => {
-    lockClient.addConnector(connector);
-  });
-
-  async function login(connector) {
-    const lockConnector = lockClient.getConnector(connector);
-    const localProvider = await lockConnector.connect();
-    if (localProvider !== null) {
-      localStorage.setItem(`_${name}.connector`, connector);
-      isAuthenticated.value = true;
+  instance = new Vue({
+    data() {
+      return {
+        isAuthenticated: false,
+        lockClient: null,
+        provider: null,
+        web3: null,
+      };
+    },
+    methods: {
+      async login(connector) {
+        // @ts-ignore
+        const lockConnector = this.lockClient.getConnector(connector);
+        const provider = await lockConnector.connect();
+        if (provider) {
+          localStorage.setItem(`_${name}.connector`, connector);
+          this.isAuthenticated = true;
+          this.provider = provider;
+        }
+        return provider;
+      },
+      async logout() {
+        const connector = await this.getConnector();
+        if (connector) {
+          // @ts-ignore
+          const lockConnector = this.lockClient.getConnector(connector);
+          await lockConnector.logout();
+          localStorage.removeItem(`_${name}.connector`);
+          this.isAuthenticated = false;
+          this.provider = null;
+        }
+      },
+      async getConnector() {
+        const connector: any = localStorage.getItem(`_${name}.connector`);
+        if (connector) {
+          // @ts-ignore
+          const lockConnector = this.lockClient.getConnector(connector);
+          const isLoggedIn = await lockConnector.isLoggedIn();
+          return isLoggedIn ? connector : false;
+        }
+        return false;
+      },
+    },
+    async created() {
+      const lock = new Lock();
+      options.connectors.forEach((connector) => {
+        lock.addConnector(connector);
+      });
       // @ts-ignore
-      provider.value = markRaw(localProvider);
-    }
-    return provider;
-  }
-
-  async function logout() {
-    const connector = await getConnector();
-    if (connector) {
-      const lockConnector = lockClient.getConnector(connector);
-      await lockConnector.logout();
-      localStorage.removeItem(`_${name}.connector`);
-      isAuthenticated.value = false;
-      provider.value = null;
-    }
-  }
-
-  async function getConnector() {
-    const connector = localStorage.getItem(`_${name}.connector`);
-    if (connector) {
-      const lockConnector = lockClient.getConnector(connector);
-      const isLoggedIn = await lockConnector.isLoggedIn();
-      return isLoggedIn ? connector : false;
-    }
-    return false;
-  }
-
-  instance = {
-    isAuthenticated,
-    provider,
-    lockClient,
-    login,
-    logout,
-    getConnector,
-  };
+      this.lockClient = lock;
+    },
+  });
 
   return instance;
 };
 
 export const LockPlugin = {
-  install(app, options) {
-    app.config.globalProperties.$auth = useLock(options);
+  install(Vue, options) {
+    Vue.prototype.$auth = useLock(options);
   },
 };
