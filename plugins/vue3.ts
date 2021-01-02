@@ -1,3 +1,4 @@
+// @ts-ignore
 import { markRaw, ref } from "vue";
 import Lock from "../src/lock";
 
