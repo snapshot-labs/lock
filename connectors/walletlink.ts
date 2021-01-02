@@ -23,10 +23,18 @@ export default class Connector extends LockConnector {
 
   logout() {
     if (localStorage) {
-      localStorage.removeItem('-walletlink:https://www.walletlink.org:session:id');
-      localStorage.removeItem('-walletlink:https://www.walletlink.org:session:secret');
-      localStorage.removeItem('-walletlink:https://www.walletlink.org:session:linked');
-      localStorage.removeItem('-walletlink:https://www.walletlink.org:Addresses');
+      localStorage.removeItem(
+        '-walletlink:https://www.walletlink.org:session:id'
+      );
+      localStorage.removeItem(
+        '-walletlink:https://www.walletlink.org:session:secret'
+      );
+      localStorage.removeItem(
+        '-walletlink:https://www.walletlink.org:session:linked'
+      );
+      localStorage.removeItem(
+        '-walletlink:https://www.walletlink.org:Addresses'
+      );
     }
     return;
   }

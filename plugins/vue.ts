@@ -1,8 +1,8 @@
 // @ts-ignore
-import Vue from "vue"; // v^2.6.11
-import Lock from "../src/lock";
+import Vue from 'vue'; // v^2.6.11
+import Lock from '../src/lock';
 
-const name = "lock";
+const name = 'lock';
 
 let instance;
 
@@ -17,7 +17,7 @@ export const useLock = ({ ...options }) => {
         isAuthenticated: false,
         lockClient: null,
         provider: null,
-        web3: null,
+        web3: null
       };
     },
     methods: {
@@ -52,7 +52,7 @@ export const useLock = ({ ...options }) => {
           return isLoggedIn ? connector : false;
         }
         return false;
-      },
+      }
     },
     async created() {
       const lock = new Lock();
@@ -61,7 +61,7 @@ export const useLock = ({ ...options }) => {
       });
       // @ts-ignore
       this.lockClient = lock;
-    },
+    }
   });
 
   return instance;
@@ -70,5 +70,5 @@ export const useLock = ({ ...options }) => {
 export const LockPlugin = {
   install(Vue, options) {
     Vue.prototype.$auth = useLock(options);
-  },
+  }
 };

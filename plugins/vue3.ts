@@ -1,8 +1,8 @@
 // @ts-ignore
-import { markRaw, ref } from "vue";
-import Lock from "../src/lock";
+import { markRaw, ref } from 'vue';
+import Lock from '../src/lock';
 
-const name = "lock";
+const name = 'lock';
 
 let instance;
 
@@ -58,7 +58,7 @@ export const useLock = ({ ...options }) => {
     lockClient,
     login,
     logout,
-    getConnector,
+    getConnector
   };
 
   return instance;
@@ -67,5 +67,5 @@ export const useLock = ({ ...options }) => {
 export const LockPlugin = {
   install(app, options) {
     app.config.globalProperties.$auth = useLock(options);
-  },
+  }
 };

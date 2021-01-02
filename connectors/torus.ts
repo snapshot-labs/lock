@@ -10,7 +10,7 @@ export default class Connector extends LockConnector {
       const torus = new Torus({});
       await torus.init({ showTorusButton: false });
       await torus.login({});
-      provider = torus.provider
+      provider = torus.provider;
     } catch (e) {
       console.error(e);
     }
