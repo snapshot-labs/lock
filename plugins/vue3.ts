@@ -28,6 +28,7 @@ export const useLock = ({ ...options }) => {
       // @ts-ignore
       provider.value = markRaw(localProvider);
     }
+    if (!provider.value) isAuthenticated.value = false;
     return provider;
   }
 
