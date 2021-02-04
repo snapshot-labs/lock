@@ -1,5 +1,5 @@
 // @ts-ignore
-import { markRaw, ref } from 'vue';
+import { ref } from 'vue';
 import Lock from '../src/lock';
 
 const name = 'lock';
@@ -12,7 +12,7 @@ export const useLock = ({ ...options }) => {
   if (instance) return instance;
 
   const isAuthenticated = ref(false);
-  const provider = ref(null);
+  const provider = ref();
 
   const lockClient = new Lock();
   options.connectors.forEach((connector) => {
@@ -25,8 +25,7 @@ export const useLock = ({ ...options }) => {
     if (localProvider !== null) {
       localStorage.setItem(`_${name}.connector`, connector);
       isAuthenticated.value = true;
-      // @ts-ignore
-      provider.value = markRaw(localProvider);
+      provider.value = localProvider;
     }
     return provider;
   }
