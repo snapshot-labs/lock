@@ -26,13 +26,11 @@ export const useLock = ({ ...options }) => {
         const lockConnector = this.lockClient.getConnector(connector);
         const provider = await lockConnector.connect();
         if (provider) {
-          localStorage.setItem(`_${name}.connector`, connector);
-          this.isAuthenticated = true;
           this.provider = provider;
         }
-        if (!provider) {
-          localStorage.removeItem(`_${name}.connector`);
-          this.isAuthenticated = false;
+        if (provider) {
+          localStorage.setItem(`_${name}.connector`, connector);
+          this.isAuthenticated = true;
         }
         return provider;
       },
