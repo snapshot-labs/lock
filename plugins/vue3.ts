@@ -27,7 +27,10 @@ export const useLock = ({ ...options }) => {
       isAuthenticated.value = true;
       provider.value = localProvider;
     }
-    if (!provider.value) isAuthenticated.value = false;
+    if (!provider.value) {
+      localStorage.removeItem(`_${name}.connector`);
+      isAuthenticated.value = false;
+    }
     return provider;
   }
 
