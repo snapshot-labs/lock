@@ -30,6 +30,10 @@ export const useLock = ({ ...options }) => {
           this.isAuthenticated = true;
           this.provider = provider;
         }
+        if (!provider) {
+          localStorage.removeItem(`_${name}.connector`);
+          this.isAuthenticated = false;
+        }
         return provider;
       },
       async logout() {
