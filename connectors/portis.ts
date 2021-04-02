@@ -8,6 +8,7 @@ export default class Connector extends LockConnector {
     try {
       const Portis = (await get()).default;
       const portis = new Portis(this.options.dappId, this.options.network);
+      // @ts-ignore
       await portis.provider.enable();
       portis.provider._portis = portis;
       provider = portis.provider;
