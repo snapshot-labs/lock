@@ -8,5 +8,6 @@ export function getInjected() {
   if (web3.isFrame) injected = { name: 'Frame', id: 'frame' };
   if (web3.isAlphaWallet) injected = { name: 'AlphaWallet', id: 'alphawallet' };
   if (web3.isImToken) injected = { name: 'imToken', id: 'imtoken' };
+  if (web3.isTokenPocket) injected = { name: 'TokenPocket', id: 'tokenpocket' };
   return injected;
 }
