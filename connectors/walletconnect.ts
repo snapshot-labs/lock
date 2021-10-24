@@ -13,6 +13,7 @@ export default class Connector extends LockConnector {
       console.error(e);
       return;
     }
+    provider.connector = 'wallet-connect'
     return provider;
   }
 
