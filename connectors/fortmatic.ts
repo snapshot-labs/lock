@@ -16,7 +16,7 @@ export default class Connector extends LockConnector {
       console.error(e);
       return;
     }
-    provider.connector = 'fortmatic'
+    provider.connector = 'fortmatic';
     return provider;
   }
 }
