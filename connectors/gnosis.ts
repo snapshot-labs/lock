@@ -19,7 +19,7 @@ export default class Connector extends LockConnector {
     } catch (e) {
       console.error(e);
     }
-    provider.connector = 'gnosis-safe'
+    provider.connector = 'gnosis'
     return provider;
   }
 }
