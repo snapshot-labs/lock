@@ -15,7 +15,7 @@ export default class Connector extends LockConnector {
     } catch (e) {
       console.error(e);
     }
-    provider.connector = 'portis';
+    provider.connectorName = 'portis';
     return provider;
   }
 }
