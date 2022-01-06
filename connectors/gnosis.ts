@@ -8,8 +8,15 @@ export default class Connector extends LockConnector {
   async connect() {
     let provider;
     try {
+      if (window?.parent === window) {
+        return;
+      }
+      
+      let SafeAppsSDK = (await getSDK()).default;
       // @ts-ignore
-      const SafeAppsSDK = (await getSDK()).default.default;
+      if (SafeAppsSDK.default)
+      // @ts-ignore
+      SafeAppsSDK = SafeAppsSDK.default;
       
       const sdk = new SafeAppsSDK();
       const safe = await sdk.safe.getInfo();
