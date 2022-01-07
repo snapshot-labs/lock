@@ -11,12 +11,14 @@ export default class Connector extends LockConnector {
       if (window?.parent === window) {
         return;
       }
+    
+      let SafeAppsSDK = (await getSDK()).default;
       // @ts-ignore
-      const SafeAppsSDK = (await getSDK()).default.default;
-      
+      if (SafeAppsSDK.default)
+      // @ts-ignore
+      SafeAppsSDK = SafeAppsSDK.default;
       const sdk = new SafeAppsSDK();
       const safe = await sdk.safe.getInfo();
-      
       const SafeAppProvider = (await getProvider()).default.SafeAppProvider;
       provider = new SafeAppProvider(safe, sdk);
     } catch (e) {

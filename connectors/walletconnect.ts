@@ -6,7 +6,9 @@ export default class Connector extends LockConnector {
   async connect() {
     let provider;
     try {
-      const WalletConnectProvider = (await get()).default;
+      let WalletConnectProvider = (await get()).default;
+      if (WalletConnectProvider.default)
+        WalletConnectProvider = WalletConnectProvider.default;
       provider = new WalletConnectProvider(this.options);
       await provider.enable();
     } catch (e) {

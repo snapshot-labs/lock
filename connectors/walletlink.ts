@@ -6,9 +6,10 @@ export default class Connector extends LockConnector {
   async connect() {
     let provider;
     try {
-      const WalletLink = (await get()).default;
+      let WalletLink = (await get()).default;
+       // @ts-ignore
+      if (WalletLink.default) WalletLink = WalletLink.default;
       const walletLink = new WalletLink(this.options);
-      // @ts-ignore
       provider = walletLink.makeWeb3Provider(
         this.options.ethJsonrpcUrl,
         this.options.chainId
