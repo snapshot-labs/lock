@@ -26,8 +26,7 @@ export const useLock = ({ ...options }) => {
       provider.value = localProvider;
     }
     if (provider.value) {
-      if (provider.value.connectorName !== 'gnosis')
-        localStorage.setItem(`_${name}.connector`, connector);
+      localStorage.setItem(`_${name}.connector`, connector);
       isAuthenticated.value = true;
     }
     return provider;
