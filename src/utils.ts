@@ -46,6 +46,12 @@ export function getInjected() {
     id: 'bitpie',
     icon: 'ipfs://QmVUZ8gznsZ2nNv85GFZuTQj31YenyUi5K4HGfhXB3jrAF'
   };
+  if (web3.isTally) injected = {
+    name: 'Tally',
+    id: 'tally',
+    icon: 'ipfs://Qma4EJoXZ2CyPfKQHbtjqnLVXP28xFwiXg3KwZa7nMZC19'
+  };
+
   return injected;
 }
 
