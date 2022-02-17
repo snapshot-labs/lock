@@ -1,6 +1,6 @@
 {
   "name": "@snapshot-labs/lock",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "repository": "snapshot-labs/lock",
   "license": "MIT",
   "main": "dist/lock.cjs.js",
