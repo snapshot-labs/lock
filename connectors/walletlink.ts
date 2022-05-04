@@ -1,5 +1,5 @@
 // @ts-ignore
-const get = () => import(/* webpackChunkName: "walletlink" */ '@coinbase/wallet-sdk'); // v^2.0.2
+const get = () => import(/* webpackChunkName: "@coinbase/wallet-sdk" */ '@coinbase/wallet-sdk'); // ^3.0.11
 import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
