@@ -18,7 +18,7 @@ export default class Connector extends LockConnector {
   }
 
   async isLoggedIn() {
-    if (!window['bitkeep'] && window['bitkeep']['ethereum']) return false;
+    if (!window['bitkeep'] || !window['bitkeep']['ethereum']) return false;
     if (window['bitkeep']['ethereum'].selectedAddress) return true;
     await new Promise((r) => setTimeout(r, 400));
     return !!window['bitkeep']['ethereum'].selectedAddress;
