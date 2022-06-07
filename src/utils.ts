@@ -51,6 +51,10 @@ export function getInjected() {
     id: 'tally',
     icon: 'ipfs://Qma4EJoXZ2CyPfKQHbtjqnLVXP28xFwiXg3KwZa7nMZC19'
   };
-
+  if (web3.isBitKeep) injected = {
+    name: 'BitKeep',
+    id: 'bitkeep',
+    icon: 'ipfs://QmUfymnHPp6GyvveyUpNhVHwaiD53zxKWr7oYMa8hfz7UW'
+  };
   return injected;
 }
