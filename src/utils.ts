@@ -54,7 +54,7 @@ export function getInjected() {
   if (web3.isBitKeep) injected = {
     name: 'BitKeep',
     id: 'bitkeep',
-    icon: 'ipfs://QmUfymnHPp6GyvveyUpNhVHwaiD53zxKWr7oYMa8hfz7UW'
+    icon: 'ipfs://QmNnBASau839xxF4QSKwBuQXNnaqHJLQYv5oTcHuJyyjcW'
   };
   return injected;
 }
