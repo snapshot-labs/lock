@@ -11,6 +11,11 @@ export function getInjected() {
     id: 'metamask',
     icon: 'ipfs://QmTE7VPXMhriKAobMWEiC5S3oG22p4G6AXGyGdNWQTQ3Fv'
   };
+  if (web3.isCoinbaseWallet) injected = {
+    name: 'Coinbase',
+    id: 'coinbase',
+    icon: 'ipfs://QmbJKEaeMz6qR3DmJSTxtYtrZeQPptVfnnYK72QBsvAw5q'
+  };
   if (web3.isTrust) injected = {
     name: 'Trust Wallet',
     id: 'trustwallet',
