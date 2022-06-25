@@ -1,6 +1,6 @@
 {
   "name": "@snapshot-labs/lock",
-  "version": "0.1.92",
+  "version": "0.1.93",
   "repository": "snapshot-labs/lock",
   "license": "MIT",
   "main": "dist/lock.cjs.js",
@@ -12,8 +12,10 @@
     "@gnosis.pm/safe-apps-sdk": "^6.1.1",
     "@portis/web3": "^4.0.6",
     "@toruslabs/torus-embed": "^1.12.1",
-    "@walletconnect/web3-provider": "1.4.1",
-    "fortmatic": "^2.2.1"
+    "@walletconnect/web3-provider": "1.7.8",
+    "fortmatic": "^2.2.1",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -38,7 +40,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "pretest": "npm run build",
-    "lint": "prettier 'plugins/**/*.ts' -w -c"
+    "lint": "prettier 'plugins/**/*.ts' -w -c",
+    "postinstall": "patch-package"
   },
   "files": [
     "dist",
