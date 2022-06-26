@@ -1,6 +1,6 @@
 {
   "name": "@snapshot-labs/lock",
-  "version": "0.1.94",
+  "version": "0.1.95",
   "repository": "snapshot-labs/lock",
   "license": "MIT",
   "main": "dist/lock.cjs.js",
@@ -13,7 +13,9 @@
     "@portis/web3": "^4.0.6",
     "@toruslabs/torus-embed": "^1.12.1",
     "@walletconnect/web3-provider": "1.7.8",
-    "fortmatic": "^2.2.1"
+    "fortmatic": "^2.2.1",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -24,8 +26,6 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
-    "patch-package": "^6.4.7",
-    "postinstall-postinstall": "^2.1.0",
     "prettier": "2.2.0",
     "rollup": "^2.35.1",
     "rollup-plugin-filesize": "^9.1.0",
