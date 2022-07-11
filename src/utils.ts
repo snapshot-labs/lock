@@ -11,6 +11,11 @@ export function getInjected() {
     id: 'metamask',
     icon: 'ipfs://QmTE7VPXMhriKAobMWEiC5S3oG22p4G6AXGyGdNWQTQ3Fv'
   };
+  if (web3.isMetaMask) injected = {
+    name: 'XDCPay',
+    id: 'xdcpay',
+    icon: 'ipfs://QmUQMVdwpsYe7NM8u5UXcvn2gv8cEHtwyf9Eu4ncYNPhuH'
+  };
   if (web3.isCoinbaseWallet) injected = {
     name: 'Coinbase',
     id: 'coinbase',
