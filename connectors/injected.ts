@@ -6,7 +6,7 @@ export default class Connector extends LockConnector {
     if (window['ethereum']) {
       provider = window['ethereum'];
       try {
-        await window['ethereum'].enable();
+        await window['ethereum'].request({ method: 'eth_requestAccounts' })
       } catch (e) {
         console.error(e);
         if (e.code === 4001) return;
