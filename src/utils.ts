@@ -61,5 +61,10 @@ export function getInjected() {
     id: 'bitkeep',
     icon: 'ipfs://QmNnBASau839xxF4QSKwBuQXNnaqHJLQYv5oTcHuJyyjcW'
   };
+  if (web3.isExodus) injected = {
+    name: 'Exodus',
+    id: 'exodus',
+    icon: 'ipfs://bafkreigvws44zebhc7unv6o2or5erxaizgvkymmnor4desblddl6a2zzya'
+  };
   return injected;
 }
