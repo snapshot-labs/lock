@@ -15,7 +15,7 @@ export const useLock = ({ ...options }) => {
   const provider = ref();
 
   const lockClient = new Lock();
-  options.connectors.forEach((connector) => {
+  options.connectors.forEach(connector => {
     lockClient.addConnector(connector);
   });
 

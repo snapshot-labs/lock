@@ -1,5 +1,4 @@
-// @ts-ignore
-const get = () => import(/* webpackChunkName: "fortmatic" */ 'fortmatic'); // v^2.0.6
+const get = () => import(/* webpackChunkName: "fortmatic" */ 'fortmatic');
 import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {

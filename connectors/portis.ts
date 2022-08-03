@@ -1,5 +1,4 @@
-// @ts-ignore
-const get = () => import(/* webpackChunkName: "portis" */ '@portis/web3/umd'); // v2.0.0-beta.49
+const get = () => import(/* webpackChunkName: "portis" */ '@portis/web3/umd');
 import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
