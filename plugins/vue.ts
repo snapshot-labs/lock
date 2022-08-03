@@ -56,7 +56,7 @@ export const useLock = ({ ...options }) => {
     },
     async created() {
       const lock = new Lock();
-      options.connectors.forEach((connector) => {
+      options.connectors.forEach(connector => {
         lock.addConnector(connector);
       });
       // @ts-ignore
