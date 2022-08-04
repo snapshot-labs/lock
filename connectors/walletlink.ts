@@ -1,11 +1,12 @@
-const get = () => import(/* webpackChunkName: "@coinbase/wallet-sdk" */ '@coinbase/wallet-sdk');
 import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
   async connect() {
     let provider;
     try {
-      let CoinbaseWalletSDK = (await get()).default;
+      let CoinbaseWalletSDK = await import(
+        "@coinbase/wallet-sdk"!
+      )
        // @ts-ignore
       if (CoinbaseWalletSDK.default) CoinbaseWalletSDK = CoinbaseWalletSDK.default;
       const walletSDK = new CoinbaseWalletSDK(this.options);
