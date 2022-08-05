@@ -7,7 +7,7 @@ export default class Connector extends LockConnector {
       let CoinbaseWalletSDK = await import(
         "@coinbase/wallet-sdk"!
       )
-       // @ts-ignore
+      if (CoinbaseWalletSDK.default) CoinbaseWalletSDK = CoinbaseWalletSDK.default;
       if (CoinbaseWalletSDK.default) CoinbaseWalletSDK = CoinbaseWalletSDK.default;
       const walletSDK = new CoinbaseWalletSDK(this.options);
       provider = walletSDK.makeWeb3Provider(
