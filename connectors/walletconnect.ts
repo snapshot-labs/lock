@@ -5,7 +5,7 @@ export default class Connector extends LockConnector {
   let provider;
     try {
       const WalletConnectProvider = await import(
-        "@walletconnect/web3-provider/dist/umd/index.min.js"!
+        "@walletconnect/web3-provider/dist/umd/index.min.js"
       );
       provider = new WalletConnectProvider.default(this.options);
       await provider.enable();
