@@ -66,5 +66,10 @@ export function getInjected() {
     id: 'exodus',
     icon: 'ipfs://bafkreigvws44zebhc7unv6o2or5erxaizgvkymmnor4desblddl6a2zzya'
   };
+    if (web3.isXDCPay) injected = {
+    name: 'XDCPay',
+    id: 'xdcpay',
+    icon: 'ipfs://QmaX3pqjWGg97bR6jjxvTopRkJVxrvwp6VB4jf1Lknq111'
+  };
   return injected;
 }
