@@ -16,7 +16,7 @@
     "fortmatic": "^2.2.1"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-commonjs": "^18.1.0",
     "@rollup/plugin-node-resolve": "^11.0.1",
     "@types/node": "^13.9.5",
     "bluebird": "^3.7.2",
