@@ -1,5 +1,3 @@
-const getSDK = () => import(/* webpackChunkName: "gnosis" */ '@gnosis.pm/safe-apps-sdk');
-const getProvider = () => import(/* webpackChunkName: "gnosis" */ '@gnosis.pm/safe-apps-provider');
 import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
@@ -10,15 +8,18 @@ export default class Connector extends LockConnector {
         return;
       }
 
-      let SafeAppsSDK = (await getSDK()).default;
-      // @ts-ignore
-      if (SafeAppsSDK.default)
-      // @ts-ignore
-      SafeAppsSDK = SafeAppsSDK.default;
+      let SafeAppsSDK = await import('@gnosis.pm/safe-apps-sdk'!);
+      if (SafeAppsSDK?.default) SafeAppsSDK = SafeAppsSDK.default;
+      if (SafeAppsSDK?.default) SafeAppsSDK = SafeAppsSDK.default;
+
       const sdk = new SafeAppsSDK();
       const safe = await sdk.safe.getInfo();
-      // @ts-ignore
-      const SafeAppProvider = (await getProvider()).default.SafeAppProvider;
+
+      let SafeAppProvider = await import('@gnosis.pm/safe-apps-provider'!);
+      if (SafeAppProvider?.default) SafeAppProvider = SafeAppProvider.default;
+      if (SafeAppProvider?.default) SafeAppProvider = SafeAppProvider.default;
+      if (SafeAppProvider?.SafeAppProvider) SafeAppProvider = SafeAppProvider.SafeAppProvider;
+
       provider = new SafeAppProvider(safe, sdk);
     } catch (e) {
       console.error(e);
