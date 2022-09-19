@@ -1,6 +1,6 @@
 {
   "name": "@snapshot-labs/lock",
-  "version": "0.1.1010",
+  "version": "0.1.1011",
   "repository": "snapshot-labs/lock",
   "license": "MIT",
   "main": "dist/lock.cjs.js",
@@ -8,7 +8,7 @@
   "browser": "dist/lock.min.js",
   "dependencies": {
     "@coinbase/wallet-sdk": "^3.4.0",
-    "@gnosis.pm/safe-apps-provider": "^0.13.1",
+    "@gnosis.pm/safe-apps-provider": "^0.13.2",
     "@gnosis.pm/safe-apps-sdk": "^7.8.0",
     "@portis/web3": "^4.0.6",
     "@toruslabs/torus-embed": "^1.12.1",
