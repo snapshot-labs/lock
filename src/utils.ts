@@ -71,5 +71,11 @@ export function getInjected() {
     id: 'xdcpay',
     icon: 'ipfs://QmaX3pqjWGg97bR6jjxvTopRkJVxrvwp6VB4jf1Lknq111'
   };
+  if (web3.isBraveWallet)
+    injected = {
+      name: 'Brave',
+      id: 'brave',
+      icon: 'ipfs://bafkreibwywapshu3b7f26o2wmx5o4hlvkbtlduubo2r2gcgfsscylh72ca'
+    };
   return injected;
 }
