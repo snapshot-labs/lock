@@ -77,5 +77,11 @@ export function getInjected() {
       id: 'brave',
       icon: 'ipfs://bafkreibwywapshu3b7f26o2wmx5o4hlvkbtlduubo2r2gcgfsscylh72ca'
     };
+  if (web3.__XDEFI)
+    injected = {
+      name: 'XDefi',
+      id: 'xdefi',
+      icon: 'ipfs://QmR9khDAzYSAzRJvzoWVwm91QcbdhLcnZQR8t7NUDPpeyu'
+    };
   return injected;
 }
