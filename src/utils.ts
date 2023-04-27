@@ -79,7 +79,7 @@ export function getInjected() {
     };
   if (web3.__XDEFI)
     injected = {
-      name: 'XDEFI',
+      name: 'XDEFI Wallet',
       id: 'xdefi',
       icon: 'ipfs://QmR9khDAzYSAzRJvzoWVwm91QcbdhLcnZQR8t7NUDPpeyu'
     };
