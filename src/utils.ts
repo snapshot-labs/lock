@@ -79,7 +79,7 @@ export function getInjected() {
     };
   if (web3.__XDEFI)
     injected = {
-      name: 'XDefi',
+      name: 'XDEFI',
       id: 'xdefi',
       icon: 'ipfs://QmR9khDAzYSAzRJvzoWVwm91QcbdhLcnZQR8t7NUDPpeyu'
     };
