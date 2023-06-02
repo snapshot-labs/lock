@@ -1,16 +1,15 @@
 import LockConnector from '../src/connector';
 
+let provider: any;
 export default class Connector extends LockConnector {
   async connect() {
-  let provider;
     try {
-      
-      let WalletConnectProvider = await import(
-        "@walletconnect/web3-provider/dist/umd/index.min.js"!
+      const imports = await import(
+        "@walletconnect/ethereum-provider"!
       );
-      if (WalletConnectProvider?.default) WalletConnectProvider = WalletConnectProvider.default;
-      if (WalletConnectProvider?.default) WalletConnectProvider = WalletConnectProvider.default;
-      provider = new WalletConnectProvider(this.options);
+      const { EthereumProvider } = imports;
+
+      provider = await EthereumProvider.init(this.options);
       await provider.enable();
     } catch (e) {
       console.error(e);
@@ -20,11 +19,26 @@ export default class Connector extends LockConnector {
     return provider;
   }
 
+  removeHashFromLocalStorage() {
+    if (!localStorage) return;
+
+    const wcKeys: string[] = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i) as string;
+      if (key.startsWith('wc@2:')) {
+        wcKeys.push(key);
+      }
+    }
+
+    wcKeys.forEach(key => localStorage.removeItem(key));
+  }
 
   logout() {
-    if (localStorage) {
-      localStorage.removeItem('walletconnect');
+    if ('disconnect' in provider) {
+      provider.disconnect().catch(this.removeHashFromLocalStorage);
+      provider = null;
+    } else {
+      this.removeHashFromLocalStorage();
     }
-    return;
   }
 }
