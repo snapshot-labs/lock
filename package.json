@@ -12,8 +12,8 @@
     "@gnosis.pm/safe-apps-sdk": "^7.8.0",
     "@portis/web3": "^4.0.6",
     "@toruslabs/torus-embed": "^1.12.1",
-    "@walletconnect/ethereum-provider": "^2.7.7",
-    "@web3modal/standalone": "^2.4.1",
+    "@walletconnect/ethereum-provider": "^2.7.8",
+    "@web3modal/standalone": "^2.4.3",
     "fortmatic": "^2.2.1"
   },
   "devDependencies": {
