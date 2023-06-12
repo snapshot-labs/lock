@@ -1,13 +1,13 @@
 {
   "name": "@snapshot-labs/lock",
-  "version": "0.1.1016",
+  "version": "0.1.1015",
   "repository": "snapshot-labs/lock",
   "license": "MIT",
   "main": "dist/lock.cjs.js",
   "module": "dist/lock.esm.js",
   "browser": "dist/lock.min.js",
   "dependencies": {
-    "@coinbase/wallet-sdk": "~3.6.6",
+    "@coinbase/wallet-sdk": "^3.4.0",
     "@gnosis.pm/safe-apps-provider": "^0.14.0",
     "@gnosis.pm/safe-apps-sdk": "^7.8.0",
     "@portis/web3": "^4.0.6",
