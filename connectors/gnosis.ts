@@ -8,14 +8,14 @@ export default class Connector extends LockConnector {
         return;
       }
 
-      let SafeAppsSDK = await import('@gnosis.pm/safe-apps-sdk'!);
+      let SafeAppsSDK = await import('@safe-global/safe-apps-sdk'!);
       if (SafeAppsSDK?.default) SafeAppsSDK = SafeAppsSDK.default;
       if (SafeAppsSDK?.default) SafeAppsSDK = SafeAppsSDK.default;
 
       const sdk = new SafeAppsSDK();
       const safe = await sdk.safe.getInfo();
 
-      let SafeAppProvider = await import('@gnosis.pm/safe-apps-provider'!);
+      let SafeAppProvider = await import('@safe-global/safe-apps-provider'!);
       if (SafeAppProvider?.default) SafeAppProvider = SafeAppProvider.default;
       if (SafeAppProvider?.default) SafeAppProvider = SafeAppProvider.default;
       if (SafeAppProvider?.SafeAppProvider) SafeAppProvider = SafeAppProvider.SafeAppProvider;

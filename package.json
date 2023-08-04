@@ -8,9 +8,9 @@
   "browser": "dist/lock.min.js",
   "dependencies": {
     "@coinbase/wallet-sdk": "^3.4.0",
-    "@gnosis.pm/safe-apps-provider": "^0.14.0",
-    "@gnosis.pm/safe-apps-sdk": "^7.8.0",
     "@portis/web3": "^4.0.6",
+    "@safe-global/safe-apps-provider": "^0.17.1",
+    "@safe-global/safe-apps-sdk": "^8.0.0",
     "@toruslabs/torus-embed": "^1.12.1",
     "@walletconnect/ethereum-provider": "^2.8.3",
     "@walletconnect/modal": "^2.5.4",
