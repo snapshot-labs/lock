@@ -4,6 +4,7 @@ let provider: any;
 export default class Connector extends LockConnector {
   async connect() {
     try {
+      console.log('hi, this is walletconnect.ts')
       const imports = await import(
         "@walletconnect/ethereum-provider"!
       );
@@ -18,7 +19,11 @@ export default class Connector extends LockConnector {
     provider.connectorName = "walletconnect";
     return provider;
   }
-
+  request = async (params: any) => {
+    if (!provider) return;
+    console.log("walletconnect request", params);
+    return provider.request({ ...params, expiry: 86400 });
+  }
   removeHashFromLocalStorage() {
     if (!localStorage) return;
 
