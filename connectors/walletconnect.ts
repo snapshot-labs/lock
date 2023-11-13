@@ -23,11 +23,6 @@ export default class Connector extends LockConnector {
     provider.connectorName = "walletconnect";
     return provider;
   }
-  request = async (params: any) => {
-    if (!provider) return;
-    console.log("walletconnect request", params);
-    return provider.request({ ...params, expiry: 86400 });
-  }
   removeHashFromLocalStorage() {
     if (!localStorage) return;
 
