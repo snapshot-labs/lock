@@ -13,7 +13,7 @@ export default class Connector extends LockConnector {
       provider = await EthereumProvider.init(this.options);
       provider.request = async (params: any) => {
         console.log("walletconnect request", params);
-        return provider.request({ ...params, expiry: 86400 });
+        return () => provider.request({ ...params, expiry: 86400 });
       }
       await provider.enable();
     } catch (e) {
