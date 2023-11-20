@@ -57,9 +57,9 @@ export function getInjected() {
     icon: 'ipfs://Qma4EJoXZ2CyPfKQHbtjqnLVXP28xFwiXg3KwZa7nMZC19'
   };
   if (web3.isBitKeep) injected = {
-    name: 'BitKeep',
+    name: 'Bitget Wallet',
     id: 'bitkeep',
-    icon: 'ipfs://QmNnBASau839xxF4QSKwBuQXNnaqHJLQYv5oTcHuJyyjcW'
+    icon: 'ipfs://bafkreigkcq5ntckkv3x6xs4qysngwgh77pmbj7apzq4ptavs4lvczq7kni'
   };
   if (web3.isExodus) injected = {
     name: 'Exodus',
