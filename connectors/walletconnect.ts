@@ -8,8 +8,11 @@ export default class Connector extends LockConnector {
         "@walletconnect/ethereum-provider"!
       );
       const { EthereumProvider } = imports;
+      EthereumProvider.request = (...args) => EthereumProvider.request(...args, 86400);
+      EthereumProvider.sendAsync = (...args) => EthereumProvider.sendAsync(...args, 86400);
 
       provider = await EthereumProvider.init(this.options);
+
       await provider.enable();
     } catch (e) {
       console.error(e);
