@@ -10,6 +10,9 @@ export default class Connector extends LockConnector {
       const { EthereumProvider } = imports;
 
       provider = await EthereumProvider.init(this.options);
+      provider.request = (...args) => provider.request(...args, 86400);
+      provider.sendAsync = (...args) => provider.sendAsync(...args, 86400);
+
       await provider.enable();
     } catch (e) {
       console.error(e);
