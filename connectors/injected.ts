@@ -2,11 +2,11 @@ import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
   async connect() {
-    let provider;
-    if (window['ethereum']) {
-      provider = window['ethereum'];
+    let provider = this.getEthProvider();
+
+    if (provider) {
       try {
-        await window['ethereum'].request({ method: 'eth_requestAccounts' })
+        await provider.request({ method: 'eth_requestAccounts' })
       } catch (e) {
         console.error(e);
         if (e.code === 4001) return;
@@ -18,9 +18,23 @@ export default class Connector extends LockConnector {
   }
 
   async isLoggedIn() {
-    if (!window['ethereum']) return false;
-    if (window['ethereum'].request({method: 'eth_accounts'})) return true;
+    const provider = this.getEthProvider();
+
+    if (!provider) return false;
+    if (provider.request({method: 'eth_accounts'})) return true;
     await new Promise((r) => setTimeout(r, 400));
-    return !!window['ethereum'].request({method: 'eth_accounts'});
+    return !!provider.request({method: 'eth_accounts'});
+  }
+
+  getEthProvider() {
+    let provider = window['ethereum'];
+
+    if (window['ethereum'].providers?.length) {
+      window['ethereum'].providers.forEach(async (p) => {
+        if (p.isMetaMask) provider = p;
+      });
+    }
+
+    return provider
   }
 }
