@@ -5,7 +5,7 @@ export default class Connector {
     this.options = options;
   }
 
-  async connect() {
+  async connect(): Promise<any> {
     return;
   }
 
