@@ -21,6 +21,11 @@ export function getInjected() {
     id: 'trustwallet',
     icon: 'ipfs://QmQzchPwEa7UnRqSS7kSt4EJWMw5mcj9u3YtTp9uig9UT5'
   };
+  if (web3.isMixin) injected = {
+    name: 'Mixin Messenger',
+    id: 'mixinmessenger',
+    icon: 'ipfs://QmT4ZcGMNoW34ZNgzjPJ6pqaoB5Fpk7z2d9yQqwGtCuEJC'
+  };
   if (web3.isStatus) injected = {
     name: 'Status',
     id: 'status',
