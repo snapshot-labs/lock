@@ -17,7 +17,7 @@ export default class Connector extends LockConnector {
             });
           } catch (e: any) {
             console.error(e);
-            if (e.code === 4001) return;
+            if (e.code === 4001 || -32002) return;
           }
         }
 
