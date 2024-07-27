@@ -7,8 +7,20 @@ export default class Connector extends LockConnector {
       provider = window['ethereum'];
       try {
         await window['ethereum'].request({ method: 'eth_requestAccounts' })
-      } catch (e) {
+      } catch (e: any) {
         console.error(e);
+        if (e.message = "Already processing eth_requestAccounts. Please wait.") {
+          try {
+            await provider.request({
+              method: "wallet_requestPermissions",
+              params: [{ eth_accounts: {} }],
+            });
+          } catch (e: any) {
+            console.error(e);
+            if (e.code === 4001) return;
+          }
+        }
+
         if (e.code === 4001) return;
       }
     } else if (window['web3']) {
