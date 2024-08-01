@@ -15,7 +15,7 @@ export default class Connector extends LockConnector {
               params: [{ eth_accounts: {} }],
             });
           } catch (e: any) {
-            if (e.code === 4001 || -32002) return;
+            if (e.code === 4001 || e.code === -32002) return;
           }
         }
 
