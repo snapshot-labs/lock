@@ -8,7 +8,6 @@ export default class Connector extends LockConnector {
       try {
         await window['ethereum'].request({ method: 'eth_requestAccounts' })
       } catch (e: any) {
-        console.error(e);
         if (e.message = "Already processing eth_requestAccounts. Please wait.") {
           try {
             await provider.request({
@@ -16,7 +15,6 @@ export default class Connector extends LockConnector {
               params: [{ eth_accounts: {} }],
             });
           } catch (e: any) {
-            console.error(e);
             if (e.code === 4001 || -32002) return;
           }
         }
