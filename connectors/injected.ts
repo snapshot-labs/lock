@@ -19,7 +19,7 @@ export default class Connector extends LockConnector {
           }
         }
 
-        if (e.code === 4001) return;
+        if (e.code === 4001 || e.code === -32002) return;
       }
     } else if (window['web3']) {
       provider = window['web3'].currentProvider;
