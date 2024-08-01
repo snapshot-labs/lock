@@ -8,7 +8,7 @@ export default class Connector extends LockConnector {
       try {
         await window['ethereum'].request({ method: 'eth_requestAccounts' })
       } catch (e: any) {
-        if (e.message = "Already processing eth_requestAccounts. Please wait.") {
+        if (e.message.includes("Already processing eth_requestAccounts")) {
           try {
             await provider.request({
               method: "wallet_requestPermissions",
