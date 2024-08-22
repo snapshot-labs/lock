@@ -8,12 +8,19 @@ export default class Connector extends LockConnector {
         "@walletconnect/ethereum-provider"!
       );
       const { EthereumProvider } = imports;
-      EthereumProvider.request = (...args) => EthereumProvider.request(...args, 86400);
-      EthereumProvider.sendAsync = (...args) => EthereumProvider.sendAsync(...args, 86400);
+      EthereumProvider.request = (...args) => {
+        console.log('WalletConnect request', args);
+        return EthereumProvider.request(...args, 86400)
+      };
+      EthereumProvider.sendAsync = (...args) => {
+        console.log('WalletConnect sendAsync', args);
+        return EthereumProvider.sendAsync(...args)
+      };
 
       provider = await EthereumProvider.init(this.options);
 
       await provider.enable();
+      console.log('WalletConnect connected');
     } catch (e) {
       console.error(e);
       return;
