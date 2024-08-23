@@ -2,13 +2,13 @@ import LockConnector from '../src/connector';
 
 declare global {
   interface WindowEventMap {
-      "eip6963:announceProvider": EIP6963AnnounceProviderEvent;
+    "eip6963:announceProvider": EIP6963AnnounceProviderEvent;
   }
 }
 
 export class EIP6963RequestProviderEvent extends Event {
   constructor() {
-      super("eip6963:requestProvider");
+    super("eip6963:requestProvider");
   }
 }
 
@@ -31,8 +31,8 @@ export interface EIP6963ProviderInfo {
 
 export interface EIP1193Provider {
   request(request: {
-      method: string;
-      params?: Array<any> | Record<string, any>;
+    method: string;
+    params?: Array<any> | Record<string, any>;
   }): Promise<any>;
 }
 
@@ -57,9 +57,19 @@ export default class Connector extends LockConnector {
     if (provider) {
       try {
         await provider.request({ method: 'eth_requestAccounts' })
-      } catch (e) {
-        console.error(e);
-        if (e.code === 4001) return;
+      } catch (e: any) {
+        if (e.message.includes("Already processing eth_requestAccounts")) {
+          try {
+            await provider.request({
+              method: "wallet_requestPermissions",
+              params: [{ eth_accounts: {} }],
+            });
+          } catch (e: any) {
+            if (e.code === 4001 || e.code === -32002) return;
+          }
+        }
+
+        if (e.code === 4001 || e.code === -32002) return;
       }
     } else if (window['web3']) {
       provider = window['web3'].currentProvider as EIP1193Provider;
