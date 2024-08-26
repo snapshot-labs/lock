@@ -1,15 +1,17 @@
+import { EIP1193Provider} from '../src/types'
+
 export default class Connector {
   public options: any;
 
-  constructor(options: string) {
+  constructor(options: any) {
     this.options = options;
   }
 
-  async connect(): Promise<any> {
+  async connect(): Promise<EIP1193Provider | undefined> {
     return;
   }
 
-  logout(): any {
+  logout(): boolean {
     return true;
   }
 

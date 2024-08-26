@@ -1,40 +1,5 @@
 import LockConnector from '../src/connector';
-
-declare global {
-  interface WindowEventMap {
-    "eip6963:announceProvider": EIP6963AnnounceProviderEvent;
-  }
-}
-
-export class EIP6963RequestProviderEvent extends Event {
-  constructor() {
-    super("eip6963:requestProvider");
-  }
-}
-
-export interface EIP6963AnnounceProviderEvent extends Event {
-  type: "eip6963:announceProvider";
-  detail: EIP6963ProviderDetail;
-}
-
-export interface EIP6963ProviderDetail {
-  info: EIP6963ProviderInfo;
-  provider: EIP1193Provider;
-}
-
-export interface EIP6963ProviderInfo {
-  uuid: string;
-  name: string;
-  icon: string;
-  rdns: string;
-}
-
-export interface EIP1193Provider {
-  request(request: {
-    method: string;
-    params?: Array<any> | Record<string, any>;
-  }): Promise<any>;
-}
+import { EIP1193Provider, EIP6963ProviderDetail, EIP6963AnnounceProviderEvent, EIP6963RequestProviderEvent } from '../src/types'
 
 const PREFERRED_PROVIDER = 'io.metamask';
 

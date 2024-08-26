@@ -1,8 +1,9 @@
 const get = () => import(/* webpackChunkName: "portis" */ '@portis/web3/umd');
 import LockConnector from '../src/connector';
+import { EIP1193Provider } from '../src/types';
 
 export default class Connector extends LockConnector {
-  async connect() {
+  async connect(): Promise<EIP1193Provider | undefined> {
     let provider;
     try {
       const Portis = (await get()).default;

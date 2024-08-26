@@ -1,7 +1,8 @@
 import LockConnector from '../src/connector';
+import { EIP1193Provider } from '../src/types';
 
 export default class Connector extends LockConnector {
-  async connect() {
+  async connect(): Promise<EIP1193Provider | undefined> {
     let provider;
     if (window['klaytn']) {
       provider = window['klaytn'];
