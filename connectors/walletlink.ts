@@ -8,7 +8,6 @@ export default class Connector extends LockConnector {
         "@coinbase/wallet-sdk"!
       )
       if (CoinbaseWalletSDK.default) CoinbaseWalletSDK = CoinbaseWalletSDK.default;
-      if (CoinbaseWalletSDK.default) CoinbaseWalletSDK = CoinbaseWalletSDK.default;
       const walletSDK = new CoinbaseWalletSDK(this.options);
       provider = walletSDK.makeWeb3Provider(
         this.options.ethJsonrpcUrl,
