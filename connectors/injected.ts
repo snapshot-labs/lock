@@ -1,7 +1,13 @@
 import LockConnector from '../src/connector';
 import { EIP1193Provider, EIP6963ProviderDetail, EIP6963AnnounceProviderEvent, EIP6963RequestProviderEvent } from '../src/types'
 
-const PREFERRED_PROVIDER = 'io.metamask';
+const PREFERRED_PROVIDER_KEY = 'lock-preferred-injected-provider'
+
+declare global {
+  interface WindowEventMap {
+    "eip6963:announceProvider": EIP6963AnnounceProviderEvent;
+  }
+}
 
 export default class Connector extends LockConnector {
   providerDetails: EIP6963ProviderDetail[] = []
@@ -39,6 +45,7 @@ export default class Connector extends LockConnector {
     } else if (window['web3']) {
       provider = window['web3'].currentProvider as EIP1193Provider;
     }
+
     return provider;
   }
 
@@ -54,6 +61,13 @@ export default class Connector extends LockConnector {
   }
 
   getProvider(): EIP1193Provider | undefined {
-    return this.providerDetails.find(detail => detail.info.rdns === PREFERRED_PROVIDER)?.provider || (window['ethereum'] as EIP1193Provider);
+    const preferredProvider = localStorage.getItem(
+      PREFERRED_PROVIDER_KEY
+    );
+
+    return (
+      this.providerDetails.find(detail => detail.info.rdns === preferredProvider)?.provider
+      || (window['ethereum'] as EIP1193Provider)
+    );
   }
 }

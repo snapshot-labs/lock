@@ -8,11 +8,6 @@ export interface EIP1193Provider {
   request: (request: { method: string, params?: Array<unknown> }) => Promise<unknown>;
 }
 
-declare global {
-  interface WindowEventMap {
-    "eip6963:announceProvider": EIP6963AnnounceProviderEvent;
-  }
-}
 
 export class EIP6963RequestProviderEvent extends Event {
   constructor() {
