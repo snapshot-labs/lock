@@ -1,11 +1,12 @@
 import LockConnector from '../src/connector';
+import { EIP1193Provider } from '../src/types';
 
 export default class Connector extends LockConnector {
-  getProvider(){
+  getProvider(): Promise<EIP1193Provider | undefined> {
     const walletProvider = window['stargazer'];
 
     if(!walletProvider){
-      return null;
+      return;
     }
 
     return walletProvider.getProvider('ethereum');
@@ -17,14 +18,14 @@ export default class Connector extends LockConnector {
     if(!provider){
       return;
     }
-    
-    try{
+
+    try {
       await provider.activate();
-    }catch(e){
+    } catch(e) {
       console.error(e);
       return;
     }
-    
+
     return provider;
   }
 

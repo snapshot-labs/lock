@@ -1,7 +1,8 @@
 import LockConnector from '../src/connector';
+import { EIP1193Provider } from '../src/types';
 
 export default class Connector extends LockConnector {
-  async connect() {
+  async connect(): Promise<EIP1193Provider | undefined> {
     let provider;
     try {
       let CoinbaseWalletSDK = await import(
@@ -23,7 +24,7 @@ export default class Connector extends LockConnector {
     return provider;
   }
 
-  logout() {
+  logout(): boolean {
     if (localStorage) {
       localStorage.removeItem(
         '-walletlink:https://www.walletlink.org:session:id'
@@ -38,6 +39,7 @@ export default class Connector extends LockConnector {
         '-walletlink:https://www.walletlink.org:Addresses'
       );
     }
-    return;
+
+    return true;
   }
 }

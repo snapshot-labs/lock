@@ -1,8 +1,9 @@
 import LockConnector from '../src/connector';
+import { EIP1193Provider } from '../src/types';
 
 let provider: any;
 export default class Connector extends LockConnector {
-  async connect() {
+  async connect(): Promise<EIP1193Provider | undefined> {
     try {
       const imports = await import(
         "@walletconnect/ethereum-provider"!
@@ -33,12 +34,14 @@ export default class Connector extends LockConnector {
     wcKeys.forEach(key => localStorage.removeItem(key));
   }
 
-  logout() {
+  logout(): boolean {
     if ('disconnect' in provider) {
       provider.disconnect().catch(this.removeHashFromLocalStorage);
       provider = null;
     } else {
       this.removeHashFromLocalStorage();
     }
+
+    return true;
   }
 }
