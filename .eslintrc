@@ -1,7 +1,0 @@
-{
-  "extends": "airbnb-base",
-  "rules": {
-    "comma-dangle": "off",
-    "dot-notation": "off"
-  }
-}

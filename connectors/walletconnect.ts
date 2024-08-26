@@ -4,9 +4,7 @@ let provider: any;
 export default class Connector extends LockConnector {
   async connect() {
     try {
-      const imports = await import(
-        "@walletconnect/ethereum-provider"!
-      );
+      const imports = await import('@walletconnect/ethereum-provider'!);
       const { EthereumProvider } = imports;
 
       provider = await EthereumProvider.init(this.options);
@@ -15,7 +13,7 @@ export default class Connector extends LockConnector {
       console.error(e);
       return;
     }
-    provider.connectorName = "walletconnect";
+    provider.connectorName = 'walletconnect';
     return provider;
   }
 

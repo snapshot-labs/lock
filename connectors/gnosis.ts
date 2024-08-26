@@ -18,7 +18,8 @@ export default class Connector extends LockConnector {
       let SafeAppProvider = await import('@safe-global/safe-apps-provider'!);
       if (SafeAppProvider?.default) SafeAppProvider = SafeAppProvider.default;
       if (SafeAppProvider?.default) SafeAppProvider = SafeAppProvider.default;
-      if (SafeAppProvider?.SafeAppProvider) SafeAppProvider = SafeAppProvider.SafeAppProvider;
+      if (SafeAppProvider?.SafeAppProvider)
+        SafeAppProvider = SafeAppProvider.SafeAppProvider;
 
       provider = new SafeAppProvider(safe, sdk);
     } catch (e) {

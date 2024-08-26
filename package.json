@@ -19,13 +19,11 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.1",
+    "@snapshot-labs/eslint-config": "^0.1.0-beta.18",
+    "@snapshot-labs/prettier-config": "^0.1.0-beta.18",
     "@types/node": "^13.9.5",
-    "bluebird": "^3.7.2",
-    "cross-fetch": "^3.1.5",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "prettier": "2.2.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.0",
     "rollup": "^2.35.1",
     "rollup-plugin-filesize": "^9.1.0",
     "rollup-plugin-json": "^4.0.0",
@@ -33,13 +31,20 @@
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-terser": "^7.0.0",
     "rollup-plugin-typescript2": "^0.27.0",
-    "typescript": "^3.8.3"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2"
   },
+  "eslintConfig": {
+    "extends": "@snapshot-labs"
+  },
+  "prettier": "@snapshot-labs/prettier-config",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "pretest": "npm run build",
-    "lint": "prettier 'plugins/**/*.ts' -w -c"
+    "lint": "eslint src/ connectors/ plugins/ --ext .ts",
+    "lint:fix": "yarn lint --fix",
+    "typecheck": "tsc --noEmit"
   },
   "files": [
     "dist",
