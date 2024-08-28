@@ -21,7 +21,7 @@ export default class Connector extends LockConnector {
   async isLoggedIn() {
     if (!window['klaytn']) return false;
     if (window['klaytn'].selectedAddress) return true;
-    await new Promise((r) => setTimeout(r, 400));
+    await new Promise(r => setTimeout(r, 400));
     return !!window['klaytn'].selectedAddress;
   }
 }

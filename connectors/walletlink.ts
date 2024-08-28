@@ -4,11 +4,11 @@ export default class Connector extends LockConnector {
   async connect() {
     let provider;
     try {
-      let CoinbaseWalletSDK = await import(
-        "@coinbase/wallet-sdk"!
-      )
-      if (CoinbaseWalletSDK.default) CoinbaseWalletSDK = CoinbaseWalletSDK.default;
-      if (CoinbaseWalletSDK.default) CoinbaseWalletSDK = CoinbaseWalletSDK.default;
+      let CoinbaseWalletSDK = await import('@coinbase/wallet-sdk'!);
+      if (CoinbaseWalletSDK.default)
+        CoinbaseWalletSDK = CoinbaseWalletSDK.default;
+      if (CoinbaseWalletSDK.default)
+        CoinbaseWalletSDK = CoinbaseWalletSDK.default;
       const walletSDK = new CoinbaseWalletSDK(this.options);
       provider = walletSDK.makeWeb3Provider(
         this.options.ethJsonrpcUrl,

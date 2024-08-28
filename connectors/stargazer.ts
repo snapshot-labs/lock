@@ -1,10 +1,10 @@
 import LockConnector from '../src/connector';
 
 export default class Connector extends LockConnector {
-  getProvider(){
+  getProvider() {
     const walletProvider = window['stargazer'];
 
-    if(!walletProvider){
+    if (!walletProvider) {
       return null;
     }
 
@@ -14,17 +14,17 @@ export default class Connector extends LockConnector {
   async connect() {
     const provider = this.getProvider();
 
-    if(!provider){
+    if (!provider) {
       return;
     }
-    
-    try{
+
+    try {
       await provider.activate();
-    }catch(e){
+    } catch (e) {
       console.error(e);
       return;
     }
-    
+
     return provider;
   }
 

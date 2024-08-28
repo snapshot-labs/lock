@@ -6,13 +6,13 @@ export default class Connector extends LockConnector {
     if (window['ethereum']) {
       provider = window['ethereum'];
       try {
-        await window['ethereum'].request({ method: 'eth_requestAccounts' })
+        await window['ethereum'].request({ method: 'eth_requestAccounts' });
       } catch (e: any) {
-        if (e.message.includes("Already processing eth_requestAccounts")) {
+        if (e.message.includes('Already processing eth_requestAccounts')) {
           try {
             await provider.request({
-              method: "wallet_requestPermissions",
-              params: [{ eth_accounts: {} }],
+              method: 'wallet_requestPermissions',
+              params: [{ eth_accounts: {} }]
             });
           } catch (e: any) {
             if (e.code === 4001 || e.code === -32002) return;
@@ -29,8 +29,8 @@ export default class Connector extends LockConnector {
 
   async isLoggedIn() {
     if (!window['ethereum']) return false;
-    if (window['ethereum'].request({method: 'eth_accounts'})) return true;
-    await new Promise((r) => setTimeout(r, 400));
-    return !!window['ethereum'].request({method: 'eth_accounts'});
+    if (window['ethereum'].request({ method: 'eth_accounts' })) return true;
+    await new Promise(r => setTimeout(r, 400));
+    return !!window['ethereum'].request({ method: 'eth_accounts' });
   }
 }
