@@ -6,8 +6,16 @@
   "main": "dist/lock.cjs.js",
   "module": "dist/lock.esm.js",
   "browser": "dist/lock.min.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "pretest": "npm run build",
+    "lint": "eslint src/ connectors/ plugins/ --ext .ts",
+    "lint:fix": "yarn lint --fix",
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
-    "@coinbase/wallet-sdk": "^3.4.0",
+    "@coinbase/wallet-sdk": "^4.0.4",
     "@portis/web3": "^4.0.6",
     "@safe-global/safe-apps-provider": "^0.17.1",
     "@safe-global/safe-apps-sdk": "^8.0.0",
@@ -38,14 +46,6 @@
     "extends": "@snapshot-labs"
   },
   "prettier": "@snapshot-labs/prettier-config",
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "pretest": "npm run build",
-    "lint": "eslint src/ connectors/ plugins/ --ext .ts",
-    "lint:fix": "yarn lint --fix",
-    "typecheck": "tsc --noEmit"
-  },
   "files": [
     "dist",
     "src",
