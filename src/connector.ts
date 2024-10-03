@@ -9,6 +9,10 @@ export default class Connector {
     return;
   }
 
+  async autoConnect(): Promise<any> {
+    return this.connect();
+  }
+
   logout(): any {
     return true;
   }

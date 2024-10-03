@@ -8,23 +8,27 @@ export default class Connector extends LockConnector {
       try {
         await window['ethereum'].request({ method: 'eth_requestAccounts' });
       } catch (e: any) {
-        if (e.message.includes('Already processing eth_requestAccounts')) {
-          try {
-            await provider.request({
-              method: 'wallet_requestPermissions',
-              params: [{ eth_accounts: {} }]
-            });
-          } catch (e: any) {
-            if (e.code === 4001 || e.code === -32002) return;
-          }
-        }
-
+        console.log(e);
         if (e.code === 4001 || e.code === -32002) return;
       }
     } else if (window['web3']) {
       provider = window['web3'].currentProvider;
     }
     return provider;
+  }
+
+  async autoConnect() {
+    let provider;
+
+    if (window['ethereum']) {
+      provider = window['ethereum'];
+    } else if (window['web3']) {
+      provider = window['web3'].currentProvider;
+    }
+
+    const accounts = await provider.request({ method: 'eth_accounts' });
+
+    return accounts.length > 0 ? provider : null;
   }
 
   async isLoggedIn() {
