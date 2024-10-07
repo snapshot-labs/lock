@@ -32,10 +32,23 @@ export const useLock = ({ ...options }) => {
     return provider;
   }
 
+  async function autoLogin(connector: string) {
+    const lockConnector = lockClient.getConnector(connector);
+    const localProvider = await lockConnector.autoConnect();
+
+    if (!localProvider) return;
+
+    provider.value = localProvider;
+    localStorage.setItem(`_${name}.connector`, connector);
+    isAuthenticated.value = true;
+
+    return provider;
+  }
+
   async function logout() {
     const connector = await getConnector();
     if (connector) {
-      const lockConnector = lockClient.getConnector(connector);
+      const lockConnector = lockClient.getConnector(connector as string);
       await lockConnector.logout();
       localStorage.removeItem(`_${name}.connector`);
       isAuthenticated.value = false;
@@ -43,7 +56,7 @@ export const useLock = ({ ...options }) => {
     }
   }
 
-  async function getConnector() {
+  async function getConnector(): Promise<boolean | string> {
     const connector = localStorage.getItem(`_${name}.connector`);
     if (connector) {
       const lockConnector = lockClient.getConnector(connector);
@@ -59,6 +72,7 @@ export const useLock = ({ ...options }) => {
     lockClient,
     login,
     logout,
+    autoLogin,
     getConnector
   };
 
