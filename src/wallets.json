@@ -120,6 +120,12 @@
     "icon": "ipfs://bafkreih6dp7hhqwwdireoxd2jqs5ath3rl32lieta4iksydanrtzzssr5q"
   },
   {
+    "flag": "isPhantom",
+    "name": "Phantom",
+    "id": "phantom",
+    "icon": "ipfs://bafkreifsncdauiiwlvpcr2fm4cbwqheot2e2fwe7l5ixvwmayzc3nq6xai"
+  },
+  {
     "flag": "isOneInchIOSWallet",
     "name": "1inch Wallet",
     "id": "1inch",
