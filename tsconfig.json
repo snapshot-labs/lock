@@ -6,7 +6,9 @@
     "noImplicitAny": false,
     "outDir": "./dist",
     "target": "es5",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "src/**/*"

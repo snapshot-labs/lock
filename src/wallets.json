@@ -1,0 +1,134 @@
+[
+  {
+    "flag": "isMetaMask",
+    "name": "MetaMask",
+    "id": "metamask",
+    "icon": "ipfs://QmTE7VPXMhriKAobMWEiC5S3oG22p4G6AXGyGdNWQTQ3Fv"
+  },
+  {
+    "flag": "isCoinbaseWallet",
+    "name": "Coinbase",
+    "id": "coinbase",
+    "icon": "ipfs://QmbJKEaeMz6qR3DmJSTxtYtrZeQPptVfnnYK72QBsvAw5q"
+  },
+  {
+    "flag": "isTrust",
+    "name": "Trust Wallet",
+    "id": "trustwallet",
+    "icon": "ipfs://QmQzchPwEa7UnRqSS7kSt4EJWMw5mcj9u3YtTp9uig9UT5"
+  },
+  {
+    "flag": "isMixin",
+    "name": "Mixin Messenger",
+    "id": "mixinmessenger",
+    "icon": "ipfs://QmT4ZcGMNoW34ZNgzjPJ6pqaoB5Fpk7z2d9yQqwGtCuEJC"
+  },
+  {
+    "flag": "isStatus",
+    "name": "Status",
+    "id": "status",
+    "icon": "ipfs://QmWQhPEvpEH3xW8wwuTr9G5vsUz8ufy25dqe394UJzwsXE"
+  },
+  {
+    "flag": "isFrame",
+    "name": "Frame",
+    "id": "frame",
+    "icon": "ipfs://QmReuKRvC7YTTEmW521nKJwEMFuocWgM9GYwUFedF6Q1BL"
+  },
+  {
+    "flag": "isAlphaWallet",
+    "name": "AlphaWallet",
+    "id": "alphawallet",
+    "icon": "ipfs://QmT7mrsAgpu4V2UJAukaEU9V6fEWYHAo7aahUxfyDdBns9"
+  },
+  {
+    "flag": "isImToken",
+    "name": "imToken",
+    "id": "imtoken",
+    "icon": "ipfs://QmacaenFbh6WXfoPVWzXiijRC8gcBT8N6yt4ZsdMWTWX5J"
+  },
+  {
+    "flag": "isTokenPocket",
+    "name": "TokenPocket",
+    "id": "tokenpocket",
+    "icon": "ipfs://QmSetXfvpWqZVCzh23XQthPFYNQTPAfJaZbkHbWdDdCHzx"
+  },
+  {
+    "flag": "isBitpie",
+    "name": "Bitpie",
+    "id": "bitpie",
+    "icon": "ipfs://QmVUZ8gznsZ2nNv85GFZuTQj31YenyUi5K4HGfhXB3jrAF"
+  },
+  {
+    "flag": "isTally",
+    "name": "Tally",
+    "id": "tally",
+    "icon": "ipfs://Qma4EJoXZ2CyPfKQHbtjqnLVXP28xFwiXg3KwZa7nMZC19"
+  },
+  {
+    "flag": "isBitKeep",
+    "name": "Bitget Wallet",
+    "id": "bitkeep",
+    "icon": "ipfs://bafkreigkcq5ntckkv3x6xs4qysngwgh77pmbj7apzq4ptavs4lvczq7kni"
+  },
+  {
+    "flag": "isExodus",
+    "name": "Exodus",
+    "id": "exodus",
+    "icon": "ipfs://bafkreigvws44zebhc7unv6o2or5erxaizgvkymmnor4desblddl6a2zzya"
+  },
+  {
+    "flag": "isXDCPay",
+    "name": "XDCPay",
+    "id": "xdcpay",
+    "icon": "ipfs://QmaX3pqjWGg97bR6jjxvTopRkJVxrvwp6VB4jf1Lknq111"
+  },
+  {
+    "flag": "isBraveWallet",
+    "name": "Brave",
+    "id": "brave",
+    "icon": "ipfs://bafkreibwywapshu3b7f26o2wmx5o4hlvkbtlduubo2r2gcgfsscylh72ca"
+  },
+  {
+    "flag": "__XDEFI",
+    "name": "XDEFI Wallet",
+    "id": "xdefi",
+    "icon": "ipfs://QmR9khDAzYSAzRJvzoWVwm91QcbdhLcnZQR8t7NUDPpeyu"
+  },
+  {
+    "flag": "isUniswapWallet",
+    "name": "Uniswap Wallet",
+    "id": "uniswap",
+    "icon": "ipfs://bafkreifgmrzdpybyn3r4k237ezbh75435gunbx5ge5yyzz7sdrljz2n35e"
+  },
+  {
+    "flag": "isRainbow",
+    "name": "Rainbow",
+    "id": "rainbow",
+    "icon": "ipfs://bafkreih43rhelvsujcaqlepauc5timgckmm4x6kegrhivrthzy7syptgye"
+  },
+  {
+    "flag": "isFamily",
+    "name": "Family Wallet",
+    "id": "Family",
+    "icon": "ipfs://bafkreifu2f2xjihcsazqcpucw4ryaufy4bhlffijs732f2nviqbnvgiuvy"
+  },
+  {
+    "flag": "isRabby",
+    "name": "Rabby Wallet",
+    "id": "rabby",
+    "icon": "ipfs://bafkreih6dp7hhqwwdireoxd2jqs5ath3rl32lieta4iksydanrtzzssr5q"
+  },
+  {
+    "flag": "isPhantom",
+    "name": "Phantom",
+    "id": "phantom",
+    "icon": "ipfs://bafkreifsncdauiiwlvpcr2fm4cbwqheot2e2fwe7l5ixvwmayzc3nq6xai"
+  },
+  {
+    "flag": "isOneInchIOSWallet",
+    "name": "1inch Wallet",
+    "id": "1inch",
+    "icon": "ipfs://bafkreia2o6gwjmvsf4thcvnehyiknya6ryygphsq5r2zbitkub7jdlirnu"
+  }
+]

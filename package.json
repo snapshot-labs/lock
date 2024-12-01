@@ -1,6 +1,6 @@
 {
   "name": "@snapshot-labs/lock",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "repository": "snapshot-labs/lock",
   "license": "MIT",
   "main": "dist/lock.cjs.js",
@@ -32,7 +32,7 @@
     "@types/node": "^13.9.5",
     "eslint": "^8.56.0",
     "prettier": "^3.1.0",
-    "rollup": "^2.35.1",
+    "rollup": "^2.79.2",
     "rollup-plugin-filesize": "^9.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-builtins": "^2.1.2",
