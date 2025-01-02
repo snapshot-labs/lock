@@ -90,9 +90,9 @@
     "icon": "ipfs://bafkreibwywapshu3b7f26o2wmx5o4hlvkbtlduubo2r2gcgfsscylh72ca"
   },
   {
-    "flag": "__XDEFI",
-    "name": "XDEFI Wallet",
-    "id": "xdefi",
+    "flag": "isCtrl",
+    "name": "Ctrl Wallet",
+    "id": "ctrl",
     "icon": "ipfs://QmR9khDAzYSAzRJvzoWVwm91QcbdhLcnZQR8t7NUDPpeyu"
   },
   {
