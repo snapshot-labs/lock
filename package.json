@@ -1,6 +1,6 @@
 {
   "name": "@snapshot-labs/lock",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "repository": "snapshot-labs/lock",
   "license": "MIT",
   "main": "dist/lock.cjs.js",
@@ -15,7 +15,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@coinbase/wallet-sdk": "^4.0.4",
+    "@coinbase/wallet-sdk": "^4.3.0",
     "@portis/web3": "^4.0.6",
     "@safe-global/safe-apps-provider": "^0.17.1",
     "@safe-global/safe-apps-sdk": "^8.0.0",
